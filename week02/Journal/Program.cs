@@ -7,15 +7,8 @@ class Program
         Journal journal = new Journal();
         Entry entry=null;
         PromptGenerator promptGenerator = new PromptGenerator();
-        
-        Console.WriteLine("PLease Choose one of the following options:");
-        Console.WriteLine("1. Write");
-        Console.WriteLine("2. Display");
-        Console.WriteLine("3. Load");
-        Console.WriteLine("4. Save");
-        Console.WriteLine("5. Quit");
-        Console.Write("What would you like to do? ");
-        string choice = Console.ReadLine();
+
+        string choice = "";
         while (choice != "5")
         {
 
