@@ -1,17 +1,20 @@
 using System;
 
+// Enhancement: This program saves journal entries as CSV (Excel compatible),
+// escapes commas/quotes, and saves a mood for each entry.
+// See Journal.cs and Entry.cs for details.
+
 class Program
 {
     static void Main(string[] args)
     {
         Journal journal = new Journal();
-        Entry entry=null;
+        Entry entry = null;
         PromptGenerator promptGenerator = new PromptGenerator();
 
         string choice = "";
         while (choice != "5")
         {
-
             Console.WriteLine("PLease Choose one of the following options:");
             Console.WriteLine("1. Write");
             Console.WriteLine("2. Display");
@@ -26,15 +29,18 @@ class Program
                 string prompt = promptGenerator.GetRandomPrompt();
                 Console.Write(prompt);
                 string userReponse = Console.ReadLine();
+                Console.Write("How are you feeling today (mood)? ");
+                string mood = Console.ReadLine();
                 entry = new Entry();
                 entry._date = DateTime.Now.ToShortDateString();
                 entry._promptText = prompt;
                 entry._entryText = userReponse;
+                entry._mood = mood;
                 journal.AddEntry(entry);
             }
             else if (choice == "2")
             {
-               journal.DisplayAll();
+                journal.DisplayAll();
             }
             else if (choice == "3")
             {
@@ -58,5 +64,4 @@ class Program
             }
         }
     }
-    
 }
