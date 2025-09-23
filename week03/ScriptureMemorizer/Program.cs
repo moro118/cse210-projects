@@ -1,6 +1,5 @@
 using System;
-// Exceeding requirements: You can add features like loading scriptures from a file, supporting a library of scriptures, or tracking user progress.
-class Program
+
 {
     static void Main(string[] args)
     {
