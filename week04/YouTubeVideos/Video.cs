@@ -2,16 +2,16 @@ using System.Transactions;
 
 public class Video
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int LengthInSeconds { get; set; }
+    private string _title;
+    private string _author;
+    private int _lengthInSeconds;
     List<Comment>_comments  = new List<Comment>();
 
     public Video(string title, string author, int lengthInSeconds)
     {
-        Title = title;
-        Author = author;
-        LengthInSeconds = lengthInSeconds;
+        _title = title;
+        _author = author;
+        _lengthInSeconds = lengthInSeconds;
     }
    public void AddComment(Comment comment)
     {
@@ -24,14 +24,14 @@ public class Video
     }
     public void Display()
     { 
-        Console.WriteLine($"Title: {Title}");
-        Console.WriteLine($"Author: {Author}");
-        Console.WriteLine($"Length (seconds): {LengthInSeconds}");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Author: {_author}");
+        Console.WriteLine($"Length (seconds): {_lengthInSeconds}");
         Console.WriteLine($"Number of Comments: {GetnumberOfComments()}");
         Console.WriteLine("Comments:");
         foreach (Comment comment in _comments)
         {
-            Console.WriteLine($"{comment.CommenterName}: {comment.Text}");
+            Console.WriteLine($"{comment.GetCommenterName()}: {comment.GetText()}");
         }
     }
 }
